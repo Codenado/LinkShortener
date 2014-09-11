@@ -18,8 +18,8 @@ As a user, I want to shorten long links and track how many times they've been cl
 #### Basic Details
 
 * Start with just shortening a URL, like <a href='http://tinyurl.com/' target='_blank'>TinyURL</a>
-* Then move on to tracking the clicks, like <a href='https://bitly.com/' target='_blank'>Google</a>
-* Get creative with the format of your short links or just use some random characters; as long as it's unique
+* Then move on to tracking the clicks, like <a href='https://goo.gl/' target='_blank'>Google</a>
+* Be creative with the format of your short links or just use some random characters; as long as it's unique
 
 #### Advanced Details
 
@@ -29,5 +29,5 @@ As a user, I want to shorten long links and track how many times they've been cl
 
 ## Notes
 
-* You should not have any trouble using your local machine/server with this challenge
+* You shouldn't have any trouble using your local machine/server with this challenge
 * If you're using Rails and want to put your project online, <a href='https://www.heroku.com/' target='_blank'>Heroku</a> will host your app and give you a domain name for free!
