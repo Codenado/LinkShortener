@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Urls</h1>
+
+
+  <div class="container">
+    <% if @urls %>
+     <% @urls.each do |url| %>
+      <div class="col-md-4">
+      <ul>
+        <li><%= url.description %></li>
+        <li>Favorites : <%= url.favorites.count %>
+           <% if current_user %>
+              <%= button_to [url] do %>
+              <% if current_user.favorite_urls.include?(url)%>
+                <strong>Remove Favorite</strong>
+              <% else %>
+                <strong>Add Favorite</strong>
+              <% end %>
+              <% end %>  
+            <% end %></li>
+        <li>Clicks : <%= url.clicks %></li>
+        <li>Creator : <%= url.creator.name %></li>
+        <li>Link : <%=link_to "/go/#{url.short_url}", "/go/#{url.short_url}" %></li>
+      </ul>
+     </div> 
+    <% end %>
+  <% end %>
+  </div>
+<br>
+
+
+

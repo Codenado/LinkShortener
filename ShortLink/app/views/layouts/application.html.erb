@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShortLink</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<div class="container">
+
+<body>
+<ul class="nav nav-pills">
+	<% if current_user %>
+  		 <li role="presentation"> <%= link_to "My Urls", current_user %> </li>
+  		  <li role="presentation"><%= link_to 'New Url', new_url_path %></li>
+  		  <li role="presentation"> <%= link_to "Logout", '/logout' %></li>
+	<% else %>
+ 		<li role="presentation"> <%= link_to 'Login', '/login' %></li> 
+ 		<li role="presentation"><%= link_to 'Signup', '/users/new' %></li>
+	<% end %>
+	<li role="presentation"> <%= link_to 'Home', '/' %> </li>
+
+	<% flash.each do |type,  message| %>
+	<div class="alert flash <%= type %>">
+	<li role="presentation"> <%= message %> </li>
+	 </div>
+	<% end %>  
+	</div>
+	</ul>
+<div class="container">
+<%= yield %>
+</div>
+
+</body>
+</html>

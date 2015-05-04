@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+
+
+  <h3><%= @user.name %>'s urls</h3>
+
+<% if @user.created_urls %>
+	<div class="container">
+
+	 <% @user.created_urls.each do |url| %>
+     <div class="col-md-4">
+      <ul>
+        <li><%= url.description %></li>
+        <li>favorites : <%= url.favorites.count %>
+          <% if url.user_favorites.include?(@user) %>
+           	<%= button_to [url] do %>
+           	<strong>Remove favorite</strong>
+          	<% end %>
+          <% else %>
+          	<%= button_to [url] do %>
+           	<strong>Add favorite</strong>
+          	<% end %>
+          <% end %> 	
+        </li>
+        
+        <li>clicks : <%= url.clicks %></li>
+        <li>Link : <%=link_to "/go/#{url.short_url}", "/go/#{url.short_url}" %></li>
+        
+        
+        <li><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+      </div>
+      <% end %>
+  <% end %>  
+  </div>
+
+  <h3 ><%= @user.name %>'s favorites</h3>
+  <div class="container">
+    <% if @user.favorite_urls %>
+	   <% @user.favorite_urls.each do |url| %>
+      <div class="col-md-4">
+      <ul>
+        <li><%= url.description %></li>
+        <li>Favorites : <%= url.favorites.count %>
+            <%= button_to [url] do %>
+            <strong>Remove Favorite</strong>
+            <% end %></li>
+        <li>Clicks : <%= url.clicks %></li>
+        <li>Creator : <%= url.creator.name %></li>
+        <li>Link : <%=link_to "/go/#{url.short_url}", "/go/#{url.short_url}" %></li>
+      </ul>
+     </div> 
+    <% end %>
+  <% end %>
+  </div>
+
+
+
+
+
